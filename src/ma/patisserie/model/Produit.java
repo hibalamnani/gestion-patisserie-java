@@ -70,10 +70,12 @@ public class Produit {
         this.fournisseur = fournisseur;
     }
 
-    public boolean estDisponible() {
-        return quantite > 0;
-    }
+   
+public boolean verifierStock(int quantiteDemandee) {
 
+    return quantiteDemandee > 0
+            && this.quantite >= quantiteDemandee;
+}
     public void diminuerStock(int quantiteVendue) {
         if (quantiteVendue <= 0) {
             throw new IllegalArgumentException(

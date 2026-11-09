@@ -44,7 +44,30 @@ public class ProduitRepository {
         return produits.stream()
                 .anyMatch(p -> p.getId() == id);
     }
+// Modifier un produit
+public boolean modifierProduit(int id, Produit nouveauProduit) {
 
+    if (nouveauProduit == null) {
+        return false;
+    }
+
+    Optional<Produit> resultat = rechercherParId(id);
+
+    if (resultat.isPresent()) {
+
+        Produit ancien = resultat.get();
+
+        ancien.setNom(nouveauProduit.getNom());
+        ancien.setPrix(nouveauProduit.getPrix());
+        ancien.setQuantite(nouveauProduit.getQuantite());
+        ancien.setCategorie(nouveauProduit.getCategorie());
+        ancien.setFournisseur(nouveauProduit.getFournisseur());
+
+        return true;
+    }
+
+    return false;
+}
     public int nombreProduits() {
         return produits.size();
     }

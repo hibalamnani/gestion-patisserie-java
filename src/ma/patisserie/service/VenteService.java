@@ -1,4 +1,11 @@
-package ma.patisserie.partie2;
+package ma.patisserie.service;
+
+import ma.patisserie.model.Commande;
+import ma.patisserie.model.Client;
+import ma.patisserie.model.Utilisateur;
+import ma.patisserie.model.Produit;
+import ma.patisserie.model.LigneCommande;
+import ma.patisserie.model.Facture;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

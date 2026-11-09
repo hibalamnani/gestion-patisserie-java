@@ -51,7 +51,7 @@ public class StockService {
    
     public long compterProduitsDisponibles() {
         return produits.stream()
-                .filter(Produit::estDisponible)
+                .filter(p -> p.getQuantite() > 0)
                 .count();
     }
 

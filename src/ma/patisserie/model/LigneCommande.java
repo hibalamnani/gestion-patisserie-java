@@ -1,4 +1,4 @@
-package ma.patisserie.partie2;
+package ma.patisserie.model;
 
 import java.util.Objects;
 
