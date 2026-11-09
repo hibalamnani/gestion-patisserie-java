@@ -10,14 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 1. Creation d'une categorie
+        
         Categorie categorie = new Categorie(
                 1,
                 "Patisseries",
                 "Gateaux et viennoiseries"
         );
 
-        // 2. Creation d'un fournisseur
+       
         Fournisseur fournisseur = new Fournisseur(
                 1,
                 "Fournisseur Central",
@@ -25,7 +25,7 @@ public class Main {
                 "contact@example.com"
         );
 
-        // 3. Creation des produits
+        
         Produit p1 = new Produit(
                 1, "Croissant", 5.0, 20,
                 categorie, fournisseur
@@ -41,37 +41,37 @@ public class Main {
                 categorie, fournisseur
         );
 
-        // 4. Creation du service de stock
+        
         StockService stock = new StockService();
 
         stock.ajouterProduit(p1);
         stock.ajouterProduit(p2);
         stock.ajouterProduit(p3);
 
-        // 5. Afficher tous les produits
+      
         System.out.println("=== Tous les produits ===");
         stock.afficherProduits();
 
-        // 6. Compter les produits disponibles
+        
         System.out.println("\n=== Produits disponibles ===");
         System.out.println(
                 "Nombre : " + stock.compterProduitsDisponibles()
         );
 
-        // 7. Trier les produits par prix
+       
         System.out.println("\n=== Produits tries par prix ===");
         stock.trierParPrix().forEach(System.out::println);
 
-        // 8. Recuperer les noms des produits
+        
         System.out.println("\n=== Noms des produits ===");
         stock.obtenirNomsProduits().forEach(System.out::println);
 
-        // 9. Rechercher un produit
+        
         System.out.println("\n=== Recherche : Gateau ===");
         stock.rechercherProduits("Gateau")
                 .forEach(System.out::println);
 
-        // 10. Tester equals() et hashCode()
+       
         System.out.println("\n=== Test equals() ===");
 
         Produit p4 = new Produit(
@@ -88,7 +88,7 @@ public class Main {
                         + (p1.hashCode() == p4.hashCode())
         );
 
-        // 11. Tester diminuerStock()
+        
         System.out.println("\n=== Diminuer le stock ===");
         p1.diminuerStock(2);
 

@@ -31,7 +31,7 @@ public class StockService {
         return new ArrayList<>(produits);
     }
 
-    // Opération intermédiaire : filter()
+    
     public List<Produit> rechercherProduits(String motCle) {
         return produits.stream()
                 .filter(p -> p.getNom() != null
@@ -40,43 +40,42 @@ public class StockService {
                 .toList();
     }
 
-    // Opération intermédiaire : sorted()
-    // Opération terminale : toList()
+   
+    
     public List<Produit> trierParPrix() {
         return produits.stream()
                 .sorted(Comparator.comparingDouble(Produit::getPrix))
                 .toList();
     }
 
-    // Opération terminale : count()
+   
     public long compterProduitsDisponibles() {
         return produits.stream()
                 .filter(Produit::estDisponible)
                 .count();
     }
 
-    // Opération terminale : forEach()
+    
     public void afficherProduits() {
         produits.stream()
                 .forEach(System.out::println);
     }
 
-    // Opération intermédiaire : map()
-    // Opération terminale : toList()
+   
     public List<String> obtenirNomsProduits() {
         return produits.stream()
                 .map(Produit::getNom)
                 .toList();
     }
     
-    // Retourner les produits en rupture de stock
+    
     public List<Produit> produitsEnRupture() {
         return produits.stream()
                 .filter(p -> p.getQuantite() == 0)
                 .toList();
     }
 
-    // Calculer la valeur totale du stock
+    
     public double calculerValeurStock() {
         return produits.stream()
                 .mapToDouble(p -> p.getPrix() * p.getQuantite())
